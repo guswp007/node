@@ -25,7 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser(process.env.COOKIE_SECRET)); // 쿠기 설정 
 app.use(session({
 	resave: false,
-	saveUninitalized : false,
+	saveUninitialized : false,
+	cookie : {
+		httpOnly : true,
+		secure : false,
+	},
+	name : 'yhsession',
 }));
 
 
